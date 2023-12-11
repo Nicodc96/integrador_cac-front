@@ -1,0 +1,22 @@
+.content{
+    padding: 30px;
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+.sticky + .content {
+    padding-top: 90px;
+}
+.hidden{
+    transform: translateX(calc(100% + 20px));
+}
+:root{
+    --background-navlink: rgba(255, 255, 255, 0.1);
+}
+.custom-tooltip{
+    --bs-tooltip-bg: #183992;
+    --bs-tooltip-color: var(--bs-white);
+}
