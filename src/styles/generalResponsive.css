@@ -1,24 +1,16 @@
 /* --------------------------  HEADER -------------------------- */
-@media (min-height:1000px) and (max-width:1920px){
-    .banner-text{
-        bottom: 500px;
-    }
-}
-@media screen and (max-width:1350px){
+
+@media screen and (max-width:1400px){
     .banner-text{
         position: absolute;
         left: 50vw;
-        bottom: 280px;
+        bottom: 150px;
         right: 10vw;
         color: white;
         text-align: right;
     }
 }
-@media (min-height:1000px) and (max-width:1350px){
-    .banner-text{
-        bottom: 500px;
-    }
-}
+
 @media screen and (max-width:1024px){
     #navbarHeader > .container-fluid > .navbar-brand{
         margin-left: 1rem;
