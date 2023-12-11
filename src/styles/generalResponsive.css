@@ -24,9 +24,9 @@
         margin-left: 1rem;
     }
 }
-@media (min-height:1000px) and (max-width:1050px){
+@media screen and (max-width:1050px){
     .banner-text{
-        bottom: 500px;
+        bottom: 3rem;
     }
     .banner-text #bannerMainText{
         font-size: 18px!important;
@@ -148,12 +148,12 @@
 }
 
 /* -------------------------- MAIN -------------------------- */
-@media screen and (max-width:1300px){
+@media screen and (max-width:1400px){
     #btnFormEnviar{
         --bs-btn-padding-x: 22vw;
     }
     #cards .card{
-        width: 25vw;
+        width: 24vw;
     }
 }
 @media screen and (max-width:1200px){
