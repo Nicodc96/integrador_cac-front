@@ -1,32 +1,24 @@
 /* --------------------------  HEADER -------------------------- */
-@media (min-height:1000px) and (max-width:1920px){
-    .banner-text{
-        bottom: 500px;
-    }
-}
-@media screen and (max-width:1350px){
+
+@media screen and (max-width:1400px){
     .banner-text{
         position: absolute;
         left: 50vw;
-        bottom: 280px;
+        bottom: 150px;
         right: 10vw;
         color: white;
         text-align: right;
     }
 }
-@media (min-height:1000px) and (max-width:1350px){
-    .banner-text{
-        bottom: 500px;
-    }
-}
+
 @media screen and (max-width:1024px){
     #navbarHeader > .container-fluid > .navbar-brand{
         margin-left: 1rem;
     }
 }
-@media (min-height:1000px) and (max-width:1050px){
+@media screen and (max-width:1050px){
     .banner-text{
-        bottom: 500px;
+        bottom: 3rem;
     }
     .banner-text #bannerMainText{
         font-size: 18px!important;
@@ -148,12 +140,12 @@
 }
 
 /* -------------------------- MAIN -------------------------- */
-@media screen and (max-width:1300px){
+@media screen and (max-width:1400px){
     #btnFormEnviar{
         --bs-btn-padding-x: 22vw;
     }
     #cards .card{
-        width: 25vw;
+        width: 24vw;
     }
 }
 @media screen and (max-width:1200px){
