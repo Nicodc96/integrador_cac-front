@@ -17,7 +17,10 @@ export const HomeForm = () => {
                         <input type="text" className="form-control" id="form-text-nombre" placeholder="Ingrese aquí su nombre" />
                     </div>
                     <div className="col mb-3">
-                        <input type="text" className="form-control" isd="form-text-apellido" placeholder="Ingrese aquí su apellido" />
+                        <input type="text" className="form-control" id="form-text-apellido" placeholder="Ingrese aquí su apellido" />
+                    </div>
+                    <div className="d-block pb-3">
+                        <input type="email" className="form-control" id="form-text-email" placeholder="Ingrese aquí su email" />
                     </div>
                 </div>
                 <div className="row justify-content-md-center" id="formContactoRowTA">

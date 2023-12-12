@@ -1,8 +1,17 @@
 import imgBillGates from '../assets/imgs/bill.jpg';
 import imgSteveJobs from '../assets/imgs/steve.jpg';
 import imgAdaLovelace from '../assets/imgs/ada.jpeg';
+import { useState } from 'react';
 
 export const HomeCards = () => {
+    const [mostrarOradores, setMostrarOradores] = useState(false);
+
+    const handleMostrarOradores = () => {
+        setMostrarOradores(!mostrarOradores);
+        console.log("mostrar ocultar")
+    }
+
+
     return (
         <section id="main-cards">
             <article id="mainCardsTitle">
@@ -42,6 +51,43 @@ export const HomeCards = () => {
                         Matemática y escritora británica. Fue la primera en reconocer que la máquina tenía aplicaciones más allá del cálculo puro y en haber publicado lo que se reconoce hoy como el primer algoritmo destinado a ser procesado por una máquina, por lo que se la considera como la primera programadora de ordenadores.
                       </p>
                     </div>
+                </div>
+            </section>
+            <section id="tablaOradores">
+                <div className="text-center">
+                    <button onClick={handleMostrarOradores} className="btn btn-success fw-semibold" id="btnFormEnviar">
+                        <span style={{fontWeight: 700}}>
+                          {
+                            mostrarOradores ? 'CERRAR':'ORADORES IGNITE'
+                          }
+                        </span>
+                    </button>
+                </div>
+                <div className='pt-5 px-5'>
+                    {
+                      mostrarOradores && (
+                        <table className="table caption-top table-hover">
+                          <thead>
+                            <tr>
+                              <th>Nombre</th>
+                              <th>Apellido</th>
+                              <th>Email</th>
+                              <th>Tema</th>
+                              <th>Fecha de Alta</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Dato 1</td>
+                              <td>Dato 2</td>
+                              <td>Dato 1</td>
+                              <td>Dato 2</td>
+                              <td>Dato 1</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      )
+                    }
                 </div>
             </section>
         </section>
