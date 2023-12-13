@@ -50,8 +50,8 @@
 }
 .banner-text{
     position: absolute;
-    left: 55vw;
-    bottom: 300px;
+    top: 250px;
+    left: 40vw;
     right: 10vw;
     color: white;
     text-align: right;
