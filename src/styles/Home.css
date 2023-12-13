@@ -124,3 +124,44 @@
     background-color: rgb(255, 81, 81);
     transform: scale(1.1);
 }
+
+table{
+    width: 100%;
+    z-index:2;
+}
+
+thead tr th{
+    background-color: #353a40 !important;
+    filter: contrast(1.05);
+    color: #eff4f8 !important;
+    width: 15%;
+    font-size: 0.7rem;
+    vertical-align: middle;
+    text-align: center;
+}
+
+tbody tr td, tbody tr th {
+    height:2rem;
+    width: 15%;
+    font-size: 0.7rem !important;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-hover tbody tr:hover td {
+    font-weight: 700;
+    background-color: var(--dark-tomato);
+    color: var(--light);
+    filter: contrast(1.1);
+}
+
+.table-hover tbody tr:hover th{
+    background-color: var(--dark-gray2);
+    color: var(--light) !important ;
+    z-index: 1 !important;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-width: 1px;
+}
+
