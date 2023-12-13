@@ -99,7 +99,7 @@ export const HomeCards = () => {
                     </div>
                 </div>
             </section>
-            <section id="tablaOradores" className="text-center">
+            <section id="tablaOradores" className="text-center pt-4">
                 <p>
                     <button
                         onClick={handleMostrarOradores}
@@ -116,7 +116,7 @@ export const HomeCards = () => {
                         </span>
                     </button>
                 </p>
-                <div style={{ minHeight: "120px" }}>
+                <div style={{ minHeight: "30px" }}>
                     <div
                         className="collapse collapse-vertical"
                         id="collapseWidthExample"
