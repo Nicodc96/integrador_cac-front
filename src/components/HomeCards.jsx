@@ -8,6 +8,7 @@ export const HomeCards = () => {
 
     const handleMostrarOradores = () => {
         setMostrarOradores(!mostrarOradores);
+        console.log("mostrar ocultar");
     };
 
     return (
@@ -131,6 +132,48 @@ export const HomeCards = () => {
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                    <td>Dato 2</td>
+                                    <td>Dato 1</td>
+                                </tr>
                                 <tr>
                                     <td>Dato 1</td>
                                     <td>Dato 2</td>
