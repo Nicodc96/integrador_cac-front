@@ -1,4 +1,36 @@
+import axios from "axios";
+import { useState } from "react";
+
 export const HomeForm = () => {
+    const [formData, setFormData] = useState({
+        nombre: "",
+        apellido: "",
+        email: "",
+        tema: "",
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name] : e.target.value
+        })
+    };
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        try {
+            await axios.post("https://integradorcac-back-production.up.railway.app/api/v1/orador")
+            setFormData({
+                nombre: "",
+                apellido: "",
+                email: "",
+                tema: "",
+            })
+            console.log("Orador agregado con éxito...")
+        } catch (error) {
+            console.error("Error al agregar el orador: ", error);
+        }
+    }
     return (
         <section id="main-form">
             <div>
@@ -23,7 +55,7 @@ export const HomeForm = () => {
                     . ¡Cuéntanos de qué quieres hablar!
                 </p>
             </div>
-            <form id="formContacto">
+            <form id="formContacto" onSubmit={handleSubmit}>
                 <div
                     className="row justify-content-md-center"
                     id="formContactoRowNA"
@@ -33,6 +65,7 @@ export const HomeForm = () => {
                             type="text"
                             className="form-control"
                             id="form-text-nombre"
+                            onChange={handleChange}
                             placeholder="Ingrese aquí su nombre"
                         />
                     </div>
@@ -41,6 +74,7 @@ export const HomeForm = () => {
                             type="text"
                             className="form-control"
                             id="form-text-apellido"
+                            onChange={handleChange}
                             placeholder="Ingrese aquí su apellido"
                         />
                     </div>
@@ -49,6 +83,7 @@ export const HomeForm = () => {
                             type="email"
                             className="form-control"
                             id="form-text-email"
+                            onChange={handleChange}
                             placeholder="Ingrese aquí su email"
                         />
                     </div>
@@ -63,6 +98,7 @@ export const HomeForm = () => {
                             id="form-textArea"
                             maxLength="450"
                             rows="4"
+                            onChange={handleChange}
                             placeholder="¿Sobre qué quieres hablar?"
                         ></textarea>
                         <p
@@ -77,6 +113,7 @@ export const HomeForm = () => {
                     <button
                         id="btnFormEnviar"
                         className="btn btn-success fw-semibold"
+                        type= "submit"
                     >
                         Enviar
                     </button>
