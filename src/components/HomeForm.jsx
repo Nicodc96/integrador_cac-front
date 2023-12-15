@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export const HomeForm = () => {
     const [formData, setFormData] = useState({
@@ -12,25 +13,52 @@ export const HomeForm = () => {
     const handleChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name] : e.target.value
-        })
+            [e.target.name]: e.target.value,
+        });
     };
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post("https://integradorcac-back-production.up.railway.app/api/v1/orador")
-            setFormData({
-                nombre: "",
-                apellido: "",
-                email: "",
-                tema: "",
-            })
-            console.log("Orador agregado con éxito...")
-        } catch (error) {
-            console.error("Error al agregar el orador: ", error);
+        if (
+            Object.keys(formData).length === 4 &&
+            formData.nombre !== "" &&
+            formData.apellido !== "" &&
+            formData.email !== "" &&
+            formData.tema !== ""
+        ) {
+            try {
+                await axios.post(
+                    "https://integradorcac-back-production.up.railway.app/api/v1/orador",
+                    formData
+                );
+                Swal.fire({
+                    title: "Inscripcion Oradores",
+                    text: "Orador agregado con éxito...",
+                    icon: "success",
+                });
+                setFormData({
+                    nombre: "",
+                    apellido: "",
+                    email: "",
+                    tema: "",
+                });
+            } catch (error) {
+                Swal.fire({
+                    title: "Inscripcion Oradores",
+                    text: "Orador No ingresado...",
+                    icon: "error",
+                });
+                console.error("Error al agregar el orador: ", error);
+            }
+        } else {
+            Swal.fire({
+                title: "Campos vacios",
+                text: "Ingresa todos los datos",
+                icon: "error",
+            });
         }
-    }
+    };
+
     return (
         <section id="main-form">
             <div>
@@ -55,7 +83,7 @@ export const HomeForm = () => {
                     . ¡Cuéntanos de qué quieres hablar!
                 </p>
             </div>
-            <form id="formContacto" onSubmit={handleSubmit}>
+            <form id="formContacto" className="needs-validation">
                 <div
                     className="row justify-content-md-center"
                     id="formContactoRowNA"
@@ -63,27 +91,36 @@ export const HomeForm = () => {
                     <div className="col mb-3">
                         <input
                             type="text"
+                            name="nombre"
                             className="form-control"
                             id="form-text-nombre"
                             onChange={handleChange}
+                            value={formData.nombre}
+                            required
                             placeholder="Ingrese aquí su nombre"
                         />
                     </div>
                     <div className="col mb-3">
                         <input
                             type="text"
+                            name="apellido"
                             className="form-control"
                             id="form-text-apellido"
                             onChange={handleChange}
+                            value={formData.apellido}
+                            required
                             placeholder="Ingrese aquí su apellido"
                         />
                     </div>
                     <div className="d-block pb-3">
                         <input
                             type="email"
+                            name="email"
                             className="form-control"
                             id="form-text-email"
                             onChange={handleChange}
+                            value={formData.email}
+                            required
                             placeholder="Ingrese aquí su email"
                         />
                     </div>
@@ -95,10 +132,13 @@ export const HomeForm = () => {
                     <div className="col">
                         <textarea
                             className="form-control"
+                            name="tema"
                             id="form-textArea"
                             maxLength="450"
                             rows="4"
                             onChange={handleChange}
+                            value={formData.tema}
+                            required
                             placeholder="¿Sobre qué quieres hablar?"
                         ></textarea>
                         <p
@@ -113,7 +153,7 @@ export const HomeForm = () => {
                     <button
                         id="btnFormEnviar"
                         className="btn btn-success fw-semibold"
-                        type= "submit"
+                        onClick={handleSubmit}
                     >
                         Enviar
                     </button>
