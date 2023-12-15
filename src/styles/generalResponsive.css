@@ -3,9 +3,6 @@
 @media screen and (max-width:1400px){
     .banner-text{
         position: absolute;
-        left: 50vw;
-        bottom: 150px;
-        right: 10vw;
         color: white;
         text-align: right;
     }
@@ -24,15 +21,11 @@
         font-size: 18px!important;
     }
 }
-@media (min-height:600px) and (max-height:700px) and (max-width:1050px){
-    .banner-text{
-        bottom: 0px;
-    }
-}
 @media (height:1368px) and (width:912px){
     .banner-text{
         bottom: 700px;
     }
+}
 @media screen and (max-width:900px){
     .banner-text{
         bottom: 150px;
@@ -41,27 +34,7 @@
         font-size: 16px!important;
     }
 }
-}
-@media (min-height:1000px) and (max-width:900px){
-    .banner-text{
-        bottom: 400px;
-    }
-}
-@media (min-height:1000px) and (max-width:850px){
-    .banner-text{
-        bottom: 500px;
-    }
-}
-@media (min-height:1000px) and (max-width:800px){
-    .banner-text{
-        bottom: 0px!important;
-    }
-}
-@media (min-height:1000px) and (max-width:768px){
-    .banner-text{
-        bottom: 500px!important;
-    }
-}
+
 @media screen and (max-width:768px){
     .banner-text{
         bottom: 0;
