@@ -1,15 +1,32 @@
 import imgBillGates from "../assets/imgs/bill.jpg";
 import imgSteveJobs from "../assets/imgs/steve.jpg";
 import imgAdaLovelace from "../assets/imgs/ada.jpeg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 export const HomeCards = () => {
     const [mostrarOradores, setMostrarOradores] = useState(false);
+    const [oradoresData, setOradoresData] = useState([]);
 
     const handleMostrarOradores = () => {
         setMostrarOradores(!mostrarOradores);
-        console.log("mostrar ocultar");
     };
+
+    const listarOradores = async () => {
+        try {
+            const resp = await axios.get(
+                "https://integradorcac-back-production.up.railway.app/api/v1/oradores"
+            );
+            setOradoresData(resp.data.listaObjetos);
+        } catch (error) {
+            console.error(`Error trayendo todos los oradores: " ${error}`);
+        }
+    };
+
+    useEffect(() => {
+        listarOradores();
+    }, []);
 
     return (
         <section id="main-cards">
@@ -132,55 +149,15 @@ export const HomeCards = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                </tr>
-                                <tr>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                </tr>
-                                <tr>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                </tr>
-                                <tr>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                </tr>
-                                <tr>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                </tr>
-                                <tr>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                </tr>
-                                <tr>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                    <td>Dato 2</td>
-                                    <td>Dato 1</td>
-                                </tr>
+                                {oradoresData.map((orador) => (
+                                    <tr key={orador.id_orador}>
+                                        <td>{orador.nombre}</td>
+                                        <td>{orador.apellido}</td>
+                                        <td>{orador.email}</td>
+                                        <td>{orador.tema}</td>
+                                        <td>{orador.fecha_alta}</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
